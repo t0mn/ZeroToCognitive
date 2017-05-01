@@ -49,11 +49,6 @@ app.use(bodyParser.json());
 // app.use('/', require("./controller/yourOwnRouter"));
 
 app.use('/', require("./controller/restapi/router"));
-var express = require('express');
-var router = express.Router();
-var speech_to_text = require('./controller/restapi/features/speech_to_text');
-
-module.exports = router;router.get('/api/speech-to-text/token*',speech_to_text.token);
 
 http.createServer(app).listen(app.get('port'),
     function(req, res) {
@@ -75,4 +70,3 @@ function loadSelectedFile(req, res) {
             res.end(data);
         });
 }
-

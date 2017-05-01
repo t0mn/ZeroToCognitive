@@ -1,9 +1,10 @@
 @CHARSET "UTF-8";
 
+
 .mic_disabled {
 	opacity: 0.7
 }
-.tutorial {background: #D0D0D0; color: #D0D0D0;}
+.tutorial {background: #D0D0D0; color: #404040;}
 
 .navbar {
   margin-bottom: 0px;
@@ -16,7 +17,12 @@
 	opacity: 0.3;
 	font-size: 1.5em
 }
-
+.text-only {
+	wrap: soft;
+	background-color: transparent;
+	color: #008571;
+	font-size: 1.15em
+}
 tr.hideRow {display: none;}
 .app_container{
 	height: 95vh;
