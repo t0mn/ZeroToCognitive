@@ -34,7 +34,7 @@ function initPage ()
       var _className = this.className;
       if(this.className == "mic_enabled")
       {
-        toggle_mic(_mic, _stop, true)
+      	toggle_mic(_mic, _stop, true)
         nextStep();
         }
       });

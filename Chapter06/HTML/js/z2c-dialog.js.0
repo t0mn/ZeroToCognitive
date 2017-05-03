@@ -38,9 +38,10 @@ var isFirst = true;
 var dialog_target = "";
 function eraseName() {document.cookie = "name="; document.cookie = "stt-token="; initPage();}
 
+// initialize everything and start up a custom dialog
 function startDialog(_target)
 {
-  document.cookie = "prevstep=startDialog";
+document.cookie = "prevstep=startDialog";
   NLC_Button.hide();
   dialog_target = $(_target);
   dialog_target.empty();
@@ -49,25 +50,29 @@ function startDialog(_target)
 }
 
 // talk to me ... use the existing text to speech service to talk to the user
+// but hide the audio controller
 function talkToMe (_target, _string)
 {
-  _target.append('<div class="shape bubble2"><p>'+_string+'</p></div>');
+_target.append('<div class="shape bubble2"><p>'+_string+'</p></div>');
   speak(_string, a_player_target, false);
 }
 
-// create the visual space for the text bubble
+// capture and display what I say. Update the existing service so that the
+// output will go to the currently active text bubble.
 function listenToMe(_step)
 {
-    var chat = "chat_"+_step;
+var chat = "chat_"+_step;
     dialog_target.append('<div class="shape bubble1"><p id="'+chat+'">...</p></div>');
     stt_out = $("#"+chat);
     listen("#"+chat);
 }
 
-// figure out the next step in the conversation.
-function nextStep()
+// make a decision based on the user response
+// choice is yes/no (positive/negative)
+// other choices will be added later
+function nextStep ()
 {
-  console.log("previous step was: "+getCookieValue("prevstep")+" and this step is: "+getCookieValue("step"));
+console.log("previous step was: "+getCookieValue("prevstep")+" and this step is: "+getCookieValue("step"));
   var step = getCookieValue("step");
 
   switch (step) {
@@ -132,8 +137,9 @@ function nextStep()
     }
 }
 
-function incrementStep(_next)
+// remember the previous step and set the next step
+function incrementStep (_next)
 {
-  document.cookie = "prevstep="+getCookieValue("step");
-  document.cookie = "step="+_next;
+	document.cookie = "prevstep="+getCookieValue("step");
+	document.cookie = "step="+_next;
 }
