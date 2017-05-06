@@ -22,6 +22,7 @@ var express = require('express');
 var saml2 = require('saml2-js');
 var Saml2js = require('saml2js') ;
 var path = require('path');
+var cookieParser = require('cookie-parser');
 var env = require('../../env.json');
 var sessionSecret = env.sessionSecret;
 
@@ -59,18 +60,31 @@ var idp = new saml2.IdentityProvider(idp_options);
 // Endpoint to retrieve metadata
 exports.metadata = function(req, res) {
   console.log("metadata entered");
-
+ res.type('application/xml');
+  res.send(sp.create_metadata());
 }
 
 // Starting point for login
 exports.login = function(req, res) {
   //console.log(idp);
   console.log("login entered");
-
+sp.create_login_request_url(idp, {}, function(err, login_url, request_id) {
+    if (err != null)
+      return res.send(500);
+    res.redirect(login_url);
+  });
 }
 
 // Assert endpoint for when login completes
 exports.assert = function(req, res) {
   console.log("assert entered");
-
+var options = {request_body: req };
+  var response = new Buffer(req.body.SAMLResponse || req.body.SAMLRequest, 'base64');
+  var parser = new Saml2js(response);
+  var userFromW3 = parser.toObject();
+  var email = userFromW3.emailaddress;
+  console.log("assert completed for "+email);
+  res.cookie('authenticated', email,{ maxAge: 43200, httpOnly: true, signed: true });
+  res.cookie('email',email,{  maxAge: 43200 });
+  res.status(302).redirect('/index.html');
 }
