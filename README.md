@@ -47,14 +47,16 @@ B). The upload process changes. You must update your CLI (command line interface
 
 Once you have done that, you will find that there is a new exec in each of the folders: `cf-diego`. This exec reads your manifest.yml file for the name of your application and then issues the appropriate cloud foundry (cf) commands and also enables Diego. I've written this exec because now, instead of issuing a single cf push command, you have to issue three commands. This exec issues all three for your automatically.
 
-If you want to resynchronize your fork with this master repository to get all of the latest updates. (First) push (`git push`) your latest work to your personal repository, (then) execute the following commands:
+Each tutorial chapter also includes an exec called `z2c_login`, which takes two parameters: your login id (email address) and either the word `dedicated` or `public`. This will automatically log you in to either the IBM Dedicated Bluemix environment OR to the IBM Public Bluemix environment. This makes it easy to switch between both environments. Please note that when you run cf push or cf-diego, your manifest.yml file must point to the same bluemix environment where you're logged in.
+
+If you want to resynchronize your fork with this master repository to get all of the latest updates. (First) push (`git push`) your latest work to your personal repository, (then) execute the following commands: 
 
     git checkout master
-    git pull git@github.com:ZeroToCognitive.git
+    git pull git@github.ibm.com:Global-Technical-Sales/ZeroToCognitive.git
     git push origin master
 
 The `git checkout master` command ensures that your local copy of your personal repository is pointing to the master branch of your local repository. This is the default branch.
 
-The `git pull git@github.com:ZeroToCognitive.git` command goes to this repository and brings down all changed files and adds them to your local repository.
+The `git pull git@github.ibm.com:Global-Technical-Sales/ZeroToCognitive.git` command goes to this repository and brings down all changed files and adds them to your local repository.
 
 The `git push origin master` command updates your personal repository on enterprise github with the latest updates you've pulled down from the master repository.

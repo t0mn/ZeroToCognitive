@@ -54,7 +54,7 @@ var config = {
           {"level": 3, "min_size": 13, "max_size": 18, "bold": true},
           {"level": 4, "min_size": 11, "max_size": 13, "bold": true, "italic": false}
         ] } },
-    "conversion_target": 'ANSWER_UNITS'
+      "conversion_target": 'ANSWER_UNITS'
       };
 
 // the convert service accepts an inbound document and creates a json file representing the sections of that inbound document.
@@ -76,7 +76,6 @@ exports.convert = function(req, res)
   var newOutputFile = path.join(path.dirname(require.main.filename),env.documentConversion.json_out_path,fileOut);
   document_conversion.convert({
     file: fs.createReadStream(newInputFile),
-    conversion_target: 'ANSWER_UNITS',
     config: config
   }, function (err, response) {
     if (err) {console.error(err); res.send(err);}

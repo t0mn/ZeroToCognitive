@@ -37,7 +37,6 @@ var vcapServices = require('vcap_services');
 var uuid = require('uuid');
 var env = require('./controller/env.json');
 var sessionSecret = env.sessionSecret;
-var gmailCredentials = env.gmail;
 var appEnv = cfenv.getAppEnv();
 var app = express();
 // the session secret is a text string of arbitrary length which is
@@ -45,7 +44,7 @@ var app = express();
 /**
 for information on how to enable https support in osx, go here:
   https://gist.github.com/nrollr/4daba07c67adcb30693e
-openssl genrsa -out key.pem
+openssl genrsa -out key.pem 2048
 openssl req -new -key key.pem -out csr.pem
 openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem
 **/
