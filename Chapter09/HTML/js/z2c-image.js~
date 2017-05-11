@@ -16,11 +16,11 @@
 // z2c-alchemy.js
 var b_Droppable, _url, _image, droppedFiles, $form, c_res ;
 var collections = {
-  "water": "water_8fe4c6",
-  "collage": "collage_fe9bf8",
-  "still": "still_36b472",
-  "forest": "forest_2c108f",
-  "abstract": "abstract_626032",
+  "water": "water_c1b73a",
+  "collage": null,
+  "still": null,
+  "forest": null,
+  "abstract": null,
   "beach": null,
   "building": null,
   "garden": null

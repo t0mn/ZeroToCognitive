@@ -19,11 +19,11 @@ var collections = {
   "water": "water_c1b73a",
   "collage": null,
   "still": null,
-  "forest": null,
+  "forest": "forest_7d6dae",
   "abstract": null,
-  "beach": null,
+  "beach": "name=beach"
   "building": null,
-  "garden": null
+  "garden": "garden_3af2b2"
 };
 var locations = {
   "water": "/images/Landscape/Water/",
