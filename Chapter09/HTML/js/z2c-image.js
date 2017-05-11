@@ -17,13 +17,13 @@
 var b_Droppable, _url, _image, droppedFiles, $form, c_res ;
 var collections = {
   "water": "water_c1b73a",
+  "forest": "forest_7d6dae", 
+  "beach": "beach_95e508",
+  "garden": "garden_3af2b2",
   "collage": null,
   "still": null,
-  "forest": "forest_7d6dae",
   "abstract": null,
-  "beach": "name=beach"
-  "building": null,
-  "garden": "garden_3af2b2"
+  "building": null
 };
 var locations = {
   "water": "/images/Landscape/Water/",
