@@ -26,14 +26,14 @@ var collections = {
   "building": null
 };
 var locations = {
-  "water": "/images/Landscape/Water/",
-  "collage": "/images/Collage/",
-  "still": "/images/Still/",
-  "forest": "/images/Landscape/Forest/",
-  "abstract": "/images/Abstract/",
-  "beach": "/images/Landscape/Beach/",
-  "building": "/images/Landscape/Building/",
-  "garden": "/images/Landscape/Garden/"
+  "water": "/images/landscape/later/",
+  "collage": "/images/collage/",
+  "still": "/images/still/",
+  "forest": "/images/landscape/forest/",
+  "abstract": "/images/abstract/",
+  "beach": "/images/landscape/beach/",
+  "building": "/images/landscape/building/",
+  "garden": "/images/landscape/garden/"
 };
 
 var maxSize = 2097152;
